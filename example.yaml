@@ -1,0 +1,24 @@
+power_profiles:
+  default:
+    commands:
+    - "ryzenadj -a 6000 -b 6000 -c 6000 "
+
+  # 'power-saver' for amd-pstate at file_watch backend
+  power:
+    commands:
+    - "ryzenadj -a 6000 -b 6000 -c 6000 "
+
+  # 'balanced' for amd-pstate at file_watch backend
+  balance_performance:
+    commands:
+    - "ryzenadj -a 8000 -b 8000 -c 8000 "
+
+  # 'performance' for amd-pstate at file_watch backend
+  performance:
+    commands:
+    - "ryzenadj -a 10000 -b 10000 -c 10000 "
+
+backend:
+  backend: "file_watch"
+  file_watch:
+    file: /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference
